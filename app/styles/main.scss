@@ -1,0 +1,57 @@
+// bower:scss
+// endbower
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+#main-content {
+  position: relative;
+  height: 100%;
+  background: url('/images/ferret.png') no-repeat center;
+  background-size: contain;
+  text-align: center;
+  white-space: nowrap;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
+}
+
+.dialog {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  bottom: 300px;
+  left: 250px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid;
+
+  p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 710px) {
+  .dialog {
+    left: calc(150px + 10vw);
+  }
+}
