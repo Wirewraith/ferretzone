@@ -18,7 +18,8 @@
   const $refresh = document.querySelector('.refresh');
 
   function pickPhrase() {
-    const lastPhraseIndex = parseInt(localStorage.getItem('lastphrase'));
+    let lastPhraseIndex = localStorage.getItem('lastphrase');
+    lastPhraseIndex = typeof lastPhraseIndex === 'string' ? parseInt(lastPhraseIndex) : -1;
     let phraseIndex = lastPhraseIndex;
 
     //Pick a phrase that isn't the one the user just saw, to keep things fresh
