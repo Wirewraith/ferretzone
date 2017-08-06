@@ -1,6 +1,13 @@
 // bower:scss
 // endbower
 
+$bg-color: #fafafa;
+$dialog-bg: #f3e0bc;
+$dialog-text: #695438;
+$dialog-border: 3px;
+$dialog-slant: 15px;
+$mobile-gap: 100px;
+
 * {
   box-sizing: border-box;
 }
@@ -12,18 +19,27 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  background: #fafafa;
+  background: $bg-color;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+a {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 #main-content {
   position: relative;
   height: 100%;
-  background: url('/images/ferret.png') no-repeat center;
+  background: url('/images/ferret.jpg') no-repeat center;
   background-size: contain;
   text-align: center;
   white-space: nowrap;
+  user-select: none;
 
   &:before {
     content: '';
@@ -38,20 +54,89 @@ body {
   display: inline-block;
   vertical-align: middle;
   position: relative;
+  z-index: 2;
   bottom: 300px;
   left: 250px;
   width: 300px;
   margin: 0 auto;
-  padding: 20px;
-  border: 1px solid;
+  padding: 20px 20px 18px 20px;
+  user-select: initial;
+  background: $dialog-bg;
+  border: $dialog-border solid $dialog-text;
+
+  white-space: normal;
+  font-weight: bold;
+  color: $dialog-text;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -#{$dialog-border * 2};
+    right: -#{$dialog-border * 2};
+    bottom: -#{$dialog-border * 2};
+    left: -#{$dialog-border * 2};
+    border: $dialog-border solid $dialog-bg;
+  }
 
   p {
     margin: 0;
   }
+
+  .slant {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: url('/images/slant.png') no-repeat;
+    background-size: contain;
+
+    &.tl {
+      top: -#{$dialog-border * 2};
+      left: -#{$dialog-border * 2};
+    }
+
+    &.tr {
+      top: -#{$dialog-border * 2};
+      right: -#{$dialog-border * 2};
+      transform: rotate(90deg);
+    }
+
+    &.bl {
+      bottom: -#{$dialog-border * 2};
+      left: -#{$dialog-border * 2};
+      transform: rotate(270deg);
+    }
+
+    &.br {
+      bottom: -#{$dialog-border * 2};
+      right: -#{$dialog-border * 2};
+      transform: rotate(180deg);
+    }
+  }
 }
 
-@media (max-width: 710px) {
+.main-footer {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+
+  font-size: 0.75em;
+  color: #999;
+
+  a {
+    color: #666;
+  }
+}
+
+@media (max-width: 815px) {
+  body {
+    padding-top: $mobile-gap;
+  }
+
   .dialog {
-    left: calc(150px + 10vw);
+    vertical-align: top;
+    top: -#{$mobile-gap - 15px};
+    bottom: auto;
+    left: auto;
   }
 }
