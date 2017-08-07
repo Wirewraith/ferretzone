@@ -144,6 +144,25 @@ a {
   a {
     color: #666;
   }
+
+  > span, .github {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+  }
+
+  > span {
+    margin-right: 5px;
+  }
+
+  .github {
+    margin-left: 5px;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 @media (max-width: 815px) {
