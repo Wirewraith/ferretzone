@@ -39,33 +39,20 @@ a {
   background: url('/images/ferret.jpg') no-repeat center;
   background-size: contain;
   text-align: center;
-  white-space: nowrap;
   user-select: none;
-
-  &:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -0.25em;
-  }
 }
 
 .dialog {
-  display: inline-block;
-  vertical-align: middle;
   position: relative;
   z-index: 2;
-  bottom: 300px;
   left: 250px;
   width: 300px;
-  margin: 0 auto;
+  margin: 10vh auto 0 auto;
   padding: 20px 30px 18px 30px;
   user-select: initial;
   background: $dialog-bg;
   border: $dialog-border solid $dialog-text;
 
-  white-space: normal;
   font-weight: bold;
   color: $dialog-text;
 
@@ -172,7 +159,7 @@ a {
 
   .dialog {
     width: 100%;
-    vertical-align: top;
+    margin-top: 0;
     top: -$mobile-gap;
     bottom: auto;
     left: auto;
